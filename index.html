@@ -1,78 +1,91 @@
-<h1>❤️ إلى بنين ❤️</h1>
-<h3>📅 تعرفنا يوم الثلاثاء ❤️</h3>
-❤️🌹
-
-بنين...
-
-من يوم الثلاثاء اللي تعرفنا بيه، وأنتِ صرتِ أجمل صدفة بحياتي.
-
-وجودج يخليني أبتسم بدون سبب، وكلامج يغيّر مزاجي للأحسن.
-
-يمكن الكلمات ما تكفي توصف مكانتج بقلبي، بس أحب تعرفين إنج شخص غالي عليّ كلش.
-
-أتمنى تبقين سعيدة دوم، وأشوف ابتسامتج بكل يوم.
-
-شكراً لأنج دخلتي حياتي، وشكراً لذاك الثلاثاء الجميل اللي جمعني بيج.
-
-أحبج هواي يا بنين. ❤️🌹
-<img src="me.jpg" width="220">
-<img src="banin.jpg" width="220"><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>رسالة خاصة ❤️</title>
+  <title>إلى بنين ❤️</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px 10px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #1a0826, #4a0028, #11001c);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      overflow-x: hidden;
       color: white;
       text-align: center;
       position: relative;
+      box-sizing: border-box;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      padding: 30px;
+      padding: 25px;
       border-radius: 20px;
       box-shadow: 0 8px 32px 0 rgba(255, 0, 128, 0.37);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      max-width: 90%;
-      width: 400px;
+      max-width: 500px;
+      width: 100%;
       z-index: 10;
+      margin: 20px 0;
     }
 
     h1 {
       color: #ff4d6d;
-      font-size: 24px;
-      margin-bottom: 15px;
+      font-size: 26px;
+      margin-bottom: 5px;
       text-shadow: 0 0 10px #ff4d6d;
     }
 
-    p {
+    h3 {
+      color: #ffb3c1;
       font-size: 18px;
-      line-height: 1.6;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    .images-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .images-container img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ff4d6d;
+      box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+    }
+
+    .message {
+      font-size: 16px;
+      line-height: 1.8;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
     }
 
     .timer {
       margin-top: 20px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: bold;
       background: rgba(0, 0, 0, 0.3);
-      padding: 10px;
+      padding: 12px;
       border-radius: 10px;
       border: 1px solid #ff758f;
     }
 
-    /* تساقط القلوب والورود والنجوم */
+    /* مؤثرات القلوب والورود المتساقطة */
     .falling-item {
       position: absolute;
       top: -50px;
@@ -101,19 +114,35 @@
   </audio>
 
   <div class="card">
-    <h1>رسالة خاصة ❤️</h1>
-    <p>تعرفنا يوم الثلاثاء... وكانت أجمل مصادفة ✨</p>
-    
+    <h1>❤️ إلى بنين ❤️</h1>
+    <h3>📅 تعرفنا يوم الثلاثاء ❤️</h3>
+
+    <div class="images-container">
+      <img src="me.jpg" alt="صورتك">
+      <img src="banin.jpg" alt="صورة بنين">
+    </div>
+
+    <div class="message">
+      ❤️🌹<br><br>
+      بنين...<br><br>
+      من يوم الثلاثاء اللي تعرفنا بيه، وأنتِ صرتِ أجمل صدفة بحياتي.<br><br>
+      وجودج يخليني أبتسم بدون سبب، وكلامج يغيّر مزاجي للأحسن.<br><br>
+      يمكن الكلمات ما تكفي توصف مكانتج بقلبي، بس أحب تعرفين إنج شخص غالي عليّ كلش.<br><br>
+      أتمنى تبقين سعيدة دوم، وأشوف ابتسامتج بكل يوم.<br><br>
+      شكراً لأنج دخلتي حياتي، وشكراً لذاك الثلاثاء الجميل اللي جمعني بيج.<br><br>
+      أحبج هواي يا بنين. ❤️🌹
+    </div>
+
     <div class="timer" id="timer">جاري حساب الأيام... ⏳</div>
   </div>
 
   <script>
-    // تشغيل الصوت تلقائياً عند التفاعل
+    // تشغيل الصوت عند الضغط على الشاشة
     document.body.addEventListener('click', () => {
       document.getElementById('bg-music').play();
     }, { once: true });
 
-    // إنشاء مؤثرات تساقط القلوب، الورود والنجوم
+    // مؤثرات التساقط
     const items = ['💖', '🌹', '✨', '💕', '🌸', '⭐'];
     function createFallingItem() {
       const item = document.createElement('div');
@@ -130,9 +159,8 @@
     }
     setInterval(createFallingItem, 300);
 
-    // حساب العداد منذ يوم الثلاثاء (يمكنك تعديل التاريخ)
-    // صيغة التاريخ: Year, Month (0-11), Day
-    const startDate = new Date(2023, 9, 24); // مثال: تاريخ سابق لليوم المطلوب
+    // حساب العداد الزمني (يمكنك تعديل تاريخ بداية التعارف هنا)
+    const startDate = new Date(2023, 9, 24); 
 
     function updateTimer() {
       const now = new Date();
