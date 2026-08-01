@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إلى بنين ❤️</title>
+  <title>رسالة خاصة إلى بنين ❤️</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      padding: 20px 10px;
+      padding: 15px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #1a0826, #4a0028, #11001c);
       min-height: 100vh;
@@ -17,82 +20,105 @@
       overflow-x: hidden;
       color: white;
       text-align: center;
-      position: relative;
-      box-sizing: border-box;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px 0 rgba(255, 0, 128, 0.37);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      max-width: 500px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px 0 rgba(255, 0, 128, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       width: 100%;
+      max-width: 400px;
       z-index: 10;
-      margin: 20px 0;
+      margin: auto;
     }
 
     h1 {
       color: #ff4d6d;
-      font-size: 26px;
-      margin-bottom: 5px;
+      font-size: 24px;
+      margin: 0 0 5px 0;
       text-shadow: 0 0 10px #ff4d6d;
     }
 
     h3 {
       color: #ffb3c1;
-      font-size: 18px;
-      margin-top: 5px;
-      margin-bottom: 20px;
+      font-size: 15px;
+      margin: 0 0 15px 0;
+      font-weight: normal;
     }
 
     .images-container {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin: 20px 0;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin: 15px 0;
     }
 
     .images-container img {
-      width: 130px;
-      height: 130px;
+      width: 100px;
+      height: 100px;
       object-fit: cover;
       border-radius: 50%;
       border: 3px solid #ff4d6d;
-      box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+      box-shadow: 0 0 12px rgba(255, 77, 109, 0.5);
     }
 
-    .message {
+    .btn-action {
+      background: linear-gradient(45deg, #ff4d6d, #ff758f);
+      color: white;
+      border: none;
+      padding: 12px 25px;
       font-size: 16px;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+      transition: transform 0.2s, background 0.3s;
+      margin: 15px 0;
+      width: 80%;
+    }
+
+    .btn-action:active {
+      transform: scale(0.95);
+    }
+
+    .message-box {
+      font-size: 15px;
       line-height: 1.8;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 12px;
-      margin: 20px 0;
+      text-align: right;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 15px;
+      border-radius: 15px;
+      margin: 15px 0;
+      min-height: 80px;
+      display: none;
+      border-right: 3px solid #ff4d6d;
     }
 
     .timer {
-      margin-top: 20px;
-      font-size: 15px;
+      margin-top: 15px;
+      font-size: 14px;
       font-weight: bold;
       background: rgba(0, 0, 0, 0.3);
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #ff758f;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 117, 143, 0.5);
+      color: #ffe6e8;
     }
 
-    /* مؤثرات القلوب والورود المتساقطة */
+    /* تساقط العناصر */
     .falling-item {
-      position: absolute;
+      position: fixed;
       top: -50px;
-      font-size: 24px;
+      font-size: 22px;
       animation: fall linear infinite;
       user-select: none;
       pointer-events: none;
+      z-index: 1;
     }
 
     @keyframes fall {
@@ -109,7 +135,8 @@
 </head>
 <body>
 
-  <audio autoplay loop id="bg-music">
+  <!-- الأغنية الخلفية -->
+  <audio loop id="bg-music">
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
 
@@ -122,27 +149,50 @@
       <img src="banin.jpg" alt="صورة بنين">
     </div>
 
-    <div class="message">
-      ❤️🌹<br><br>
-      بنين...<br><br>
-      من يوم الثلاثاء اللي تعرفنا بيه، وأنتِ صرتِ أجمل صدفة بحياتي.<br><br>
-      وجودج يخليني أبتسم بدون سبب، وكلامج يغيّر مزاجي للأحسن.<br><br>
-      يمكن الكلمات ما تكفي توصف مكانتج بقلبي، بس أحب تعرفين إنج شخص غالي عليّ كلش.<br><br>
-      أتمنى تبقين سعيدة دوم، وأشوف ابتسامتج بكل يوم.<br><br>
-      شكراً لأنج دخلتي حياتي، وشكراً لذاك الثلاثاء الجميل اللي جمعني بيج.<br><br>
-      أحبج هواي يا بنين. ❤️🌹
-    </div>
+    <!-- زر ظهور الرسالة -->
+    <button class="btn-action" id="show-msg-btn" onclick="startTyping()">دوس هنا ❤️</button>
 
-    <div class="timer" id="timer">جاري حساب الأيام... ⏳</div>
+    <!-- مكان ظهور النص تدريجياً -->
+    <div class="message-box" id="message-box"></div>
+
+    <!-- العداد -->
+    <div class="timer" id="timer">جاري حساب الوقت... ⏳</div>
   </div>
 
   <script>
-    // تشغيل الصوت عند الضغط على الشاشة
-    document.body.addEventListener('click', () => {
-      document.getElementById('bg-music').play();
-    }, { once: true });
+    const fullMessage = "❤️🌹\n\nبنين...\n\nمن يوم الثلاثاء اللي تعرفنا بيه، وأنتِ صرتِ أجمل صدفة بحياتي.\n\nوجودج يخليني أبتسم بدون سبب، وكلامج يغيّر مزاجي للأحسن.\n\nيمكن الكلمات ما تكفي توصف مكانتج بقلبي، بس أحب تعرفين إنج شخص غالي عليّ كلش.\n\nأتمنى تبقين سعيدة دوم، وأشوف ابتسامتج بكل يوم.\n\nشكراً لأنج دخلتي حياتي، وشكراً لذاك الثلاثاء الجميل اللي جمعني بيج.\n\nأحبج هواي يا بنين. ❤️🌹";
 
-    // مؤثرات التساقط
+    let charIndex = 0;
+    let isTyping = false;
+
+    function startTyping() {
+      // تشغيل الموسيقى عند الضغط
+      const music = document.getElementById('bg-music');
+      music.play().catch(() => {});
+
+      if (isTyping) return;
+      isTyping = true;
+
+      document.getElementById('show-msg-btn').style.display = 'none';
+      const msgBox = document.getElementById('message-box');
+      msgBox.style.display = 'block';
+
+      function typeNextChar() {
+        if (charIndex < fullMessage.length) {
+          let char = fullMessage.charAt(charIndex);
+          if (char === '\n') {
+            msgBox.innerHTML += '<br>';
+          } else {
+            msgBox.innerHTML += char;
+          }
+          charIndex++;
+          setTimeout(typeNextChar, 40); // السرعة
+        }
+      }
+      typeNextChar();
+    }
+
+    // تأثير التساقط
     const items = ['💖', '🌹', '✨', '💕', '🌸', '⭐'];
     function createFallingItem() {
       const item = document.createElement('div');
@@ -150,17 +200,16 @@
       item.innerText = items[Math.floor(Math.random() * items.length)];
       item.style.left = Math.random() * 100 + 'vw';
       item.style.animationDuration = Math.random() * 3 + 3 + 's';
-      item.style.fontSize = Math.random() * 15 + 15 + 'px';
+      item.style.fontSize = Math.random() * 10 + 15 + 'px';
       document.body.appendChild(item);
 
-      setTimeout(() => {
-        item.remove();
-      }, 6000);
+      setTimeout(() => { item.remove(); }, 6000);
     }
-    setInterval(createFallingItem, 300);
+    setInterval(createFallingItem, 350);
 
-    // حساب العداد الزمني (يمكنك تعديل تاريخ بداية التعارف هنا)
-    const startDate = new Date(2023, 9, 24); 
+    // العداد (حساب أسبوع/7 أيام إلى الآن)
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - 7); 
 
     function updateTimer() {
       const now = new Date();
@@ -168,9 +217,10 @@
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
       document.getElementById('timer').innerText = 
-        `مرت ${days} يوم و ${hours} ساعة و ${minutes} دقيقة على معرفتنا 💕`;
+        `مرت ${days} أيام و ${hours} ساعة و ${minutes} دقيقة و ${seconds} ثانية على معرفتنا 💕`;
     }
     setInterval(updateTimer, 1000);
     updateTimer();
