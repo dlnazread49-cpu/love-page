@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>رسالة خاصة إلى بنين ❤️</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 15px;
@@ -21,7 +19,6 @@
       color: white;
       text-align: center;
     }
-
     .card {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(12px);
@@ -35,108 +32,44 @@
       z-index: 10;
       margin: auto;
     }
-
-    h1 {
-      color: #ff4d6d;
-      font-size: 24px;
-      margin: 0 0 5px 0;
-      text-shadow: 0 0 10px #ff4d6d;
-    }
-
-    h3 {
-      color: #ffb3c1;
-      font-size: 15px;
-      margin: 0 0 15px 0;
-      font-weight: normal;
-    }
-
-    .images-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      margin: 15px 0;
-    }
-
+    h1 { color: #ff4d6d; font-size: 24px; margin: 0 0 5px 0; text-shadow: 0 0 10px #ff4d6d; }
+    h3 { color: #ffb3c1; font-size: 15px; margin: 0 0 15px 0; font-weight: normal; }
+    .images-container { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 15px 0; }
     .images-container img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #ff4d6d;
-      box-shadow: 0 0 12px rgba(255, 77, 109, 0.5);
+      width: 100px; height: 100px; object-fit: cover; border-radius: 50%;
+      border: 3px solid #ff4d6d; box-shadow: 0 0 12px rgba(255, 77, 109, 0.5);
     }
-
     .btn-action {
       background: linear-gradient(45deg, #ff4d6d, #ff758f);
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 25px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-      transition: transform 0.2s, background 0.3s;
-      margin: 15px 0;
-      width: 80%;
+      color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold;
+      border-radius: 25px; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+      margin: 15px 0; width: 80%;
     }
-
-    .btn-action:active {
-      transform: scale(0.95);
-    }
-
     .message-box {
-      font-size: 15px;
-      line-height: 1.8;
-      text-align: right;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 15px;
-      border-radius: 15px;
-      margin: 15px 0;
-      min-height: 80px;
-      display: none;
-      border-right: 3px solid #ff4d6d;
+      font-size: 15px; line-height: 1.8; text-align: right;
+      background: rgba(0, 0, 0, 0.25); padding: 15px; border-radius: 15px;
+      margin: 15px 0; min-height: 80px; display: none; border-right: 3px solid #ff4d6d;
     }
-
     .timer {
-      margin-top: 15px;
-      font-size: 14px;
-      font-weight: bold;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 117, 143, 0.5);
-      color: #ffe6e8;
+      margin-top: 15px; font-size: 14px; font-weight: bold;
+      background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 12px;
+      border: 1px solid rgba(255, 117, 143, 0.5); color: #ffe6e8;
     }
-
     .falling-item {
-      position: fixed;
-      top: -50px;
-      font-size: 22px;
-      animation: fall linear infinite;
-      user-select: none;
-      pointer-events: none;
-      z-index: 1;
+      position: fixed; top: -50px; font-size: 22px; animation: fall linear infinite;
+      user-select: none; pointer-events: none; z-index: 1;
     }
-
     @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(105vh) rotate(360deg);
-        opacity: 0.2;
-      }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
     }
   </style>
 </head>
 <body>
 
-  <!-- الأغنية المطلوبة -->
-  <audio loop id="bg-music">
-    <source src="https://files.catbox.moe/w8l6g6.mp3" type="audio/mpeg">
+  <!-- صوت الاغنية -->
+  <audio loop id="bg-music" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
   </audio>
 
   <div class="card">
@@ -144,8 +77,9 @@
     <h3>📅 تعرفنا يوم الثلاثاء ❤️</h3>
 
     <div class="images-container">
-      <img src="1000044289.jpg" alt="صورتك">
-      <img src="1000044458.jpg" alt="صورة بنين">
+      <!-- أسماء الصور المرفوعة بمستودعك -->
+      <img src="1000044289.jpg" onerror="this.src='https://i.postimg.co/D0mC4p4P/user.png'" alt="صورتك">
+      <img src="1000044458.jpg" onerror="this.src='https://i.postimg.co/D0mC4p4P/user.png'" alt="صورة بنين">
     </div>
 
     <button class="btn-action" id="show-msg-btn" onclick="startTyping()">دوس هنا ❤️</button>
@@ -163,7 +97,7 @@
 
     function startTyping() {
       const music = document.getElementById('bg-music');
-      music.play().catch(() => {});
+      music.play().catch(e => console.log(e));
 
       if (isTyping) return;
       isTyping = true;
@@ -196,7 +130,6 @@
       item.style.animationDuration = Math.random() * 3 + 3 + 's';
       item.style.fontSize = Math.random() * 10 + 15 + 'px';
       document.body.appendChild(item);
-
       setTimeout(() => { item.remove(); }, 6000);
     }
     setInterval(createFallingItem, 350);
