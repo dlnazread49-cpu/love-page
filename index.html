@@ -110,7 +110,6 @@
       color: #ffe6e8;
     }
 
-    /* تساقط العناصر */
     .falling-item {
       position: fixed;
       top: -50px;
@@ -135,7 +134,6 @@
 </head>
 <body>
 
-  <!-- الأغنية الخلفية -->
   <audio loop id="bg-music">
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
@@ -145,17 +143,14 @@
     <h3>📅 تعرفنا يوم الثلاثاء ❤️</h3>
 
     <div class="images-container">
-      <img src="me.jpg" alt="صورتك">
-      <img src="banin.jpg" alt="صورة بنين">
+      <img src="https://i.ibb.co/L5h8nS0/boy.jpg" alt="صورتك">
+      <img src="https://i.ibb.co/8MxgmGq/girl.jpg" alt="صورة بنين">
     </div>
 
-    <!-- زر ظهور الرسالة -->
     <button class="btn-action" id="show-msg-btn" onclick="startTyping()">دوس هنا ❤️</button>
 
-    <!-- مكان ظهور النص تدريجياً -->
     <div class="message-box" id="message-box"></div>
 
-    <!-- العداد -->
     <div class="timer" id="timer">جاري حساب الوقت... ⏳</div>
   </div>
 
@@ -166,7 +161,6 @@
     let isTyping = false;
 
     function startTyping() {
-      // تشغيل الموسيقى عند الضغط
       const music = document.getElementById('bg-music');
       music.play().catch(() => {});
 
@@ -186,13 +180,12 @@
             msgBox.innerHTML += char;
           }
           charIndex++;
-          setTimeout(typeNextChar, 40); // السرعة
+          setTimeout(typeNextChar, 40);
         }
       }
       typeNextChar();
     }
 
-    // تأثير التساقط
     const items = ['💖', '🌹', '✨', '💕', '🌸', '⭐'];
     function createFallingItem() {
       const item = document.createElement('div');
@@ -207,7 +200,6 @@
     }
     setInterval(createFallingItem, 350);
 
-    // العداد (حساب أسبوع/7 أيام إلى الآن)
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - 7); 
 
