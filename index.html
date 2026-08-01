@@ -69,7 +69,7 @@
 </head>
 <body>
 
-  <!-- صوت أغنية Nezuko Kamado - Crazy But She's Mine -->
+  <!-- صوت أغنية Nezuko Kamado - Crazy But She's Mine المباشر -->
   <audio loop id="bg-music" preload="auto">
     <source src="https://files.catbox.moe/5z5s3k.mp3" type="audio/mpeg">
   </audio>
@@ -79,8 +79,8 @@
     <h3>📅 تعرفنا يوم الثلاثاء ❤️</h3>
 
     <div class="images-container">
-      <img src="1000044289.jpg" alt="صورتك">
-      <img src="1000044458.jpg" alt="صورة بنين">
+      <img src="https://api.allorigins.win/raw?url=https://raw.githubusercontent.com/49-cpu/49-cpu.github.io/main/1000044289.jpg" alt="صورتك" onerror="this.src='https://i.imgur.com/6VBx3io.png'">
+      <img src="https://api.allorigins.win/raw?url=https://raw.githubusercontent.com/49-cpu/49-cpu.github.io/main/1000044458.jpg" alt="صورة بنين" onerror="this.src='https://i.imgur.com/6VBx3io.png'">
     </div>
 
     <button class="btn-action" id="show-msg-btn" onclick="startTyping()">دوس هنا ❤️</button>
@@ -97,8 +97,9 @@
     let isTyping = false;
 
     function startTyping() {
+      // تشغيل الموسيقى فور الضغط على الزر
       const music = document.getElementById('bg-music');
-      music.play().catch(e => console.log(e));
+      music.play().catch(e => console.log('Audio error:', e));
 
       if (isTyping) return;
       isTyping = true;
