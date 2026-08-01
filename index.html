@@ -1,73 +1,151 @@
-<!DOCTYPE html>
+<h1>❤️ إلى بنين ❤️</h1>
+<h3>📅 تعرفنا يوم الثلاثاء ❤️</h3>
+❤️🌹
+
+بنين...
+
+من يوم الثلاثاء اللي تعرفنا بيه، وأنتِ صرتِ أجمل صدفة بحياتي.
+
+وجودج يخليني أبتسم بدون سبب، وكلامج يغيّر مزاجي للأحسن.
+
+يمكن الكلمات ما تكفي توصف مكانتج بقلبي، بس أحب تعرفين إنج شخص غالي عليّ كلش.
+
+أتمنى تبقين سعيدة دوم، وأشوف ابتسامتج بكل يوم.
+
+شكراً لأنج دخلتي حياتي، وشكراً لذاك الثلاثاء الجميل اللي جمعني بيج.
+
+أحبج هواي يا بنين. ❤️🌹
+<img src="me.jpg" width="220">
+<img src="banin.jpg" width="220"><!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>رسالة خاصة ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رسالة خاصة ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a0826, #4a0028, #11001c);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#ff4d6d,#ff99ac);
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-color:white;
-text-align:center;
-overflow:hidden;
-}
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(255, 0, 128, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      max-width: 90%;
+      width: 400px;
+      z-index: 10;
+    }
 
-.card{
-background:rgba(255,255,255,.15);
-padding:30px;
-border-radius:20px;
-backdrop-filter:blur(8px);
-max-width:350px;
-}
+    h1 {
+      color: #ff4d6d;
+      font-size: 24px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px #ff4d6d;
+    }
 
-h1{font-size:32px;}
-p{font-size:20px;line-height:1.8;}
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
 
-button{
-margin-top:20px;
-padding:12px 25px;
-border:none;
-border-radius:30px;
-font-size:18px;
-cursor:pointer;
-background:white;
-color:#ff4d6d;
-}
+    .timer {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ff758f;
+    }
 
-#msg{
-display:none;
-margin-top:20px;
-font-size:22px;
-font-weight:bold;
-}
-</style>
+    /* تساقط القلوب والورود والنجوم */
+    .falling-item {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(105vh) rotate(360deg);
+        opacity: 0.2;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="card">
-<h1>❤️ رسالة خاصة ❤️</h1>
-<p>اضغطي الزر إذا حابة تعرفين شنو أريد أگولج.</p>
+  <audio autoplay loop id="bg-music">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
 
-<button onclick="showMsg()">اضغطي هنا</button>
+  <div class="card">
+    <h1>رسالة خاصة ❤️</h1>
+    <p>تعرفنا يوم الثلاثاء... وكانت أجمل مصادفة ✨</p>
+    
+    <div class="timer" id="timer">جاري حساب الأيام... ⏳</div>
+  </div>
 
-<div id="msg">
-أحبج جدًا، ووجودج بحياتي هو أجمل شيء صار إلي. ❤️🌹
-</div>
-</div>
+  <script>
+    // تشغيل الصوت تلقائياً عند التفاعل
+    document.body.addEventListener('click', () => {
+      document.getElementById('bg-music').play();
+    }, { once: true });
 
-<script>
-function showMsg(){
-document.getElementById("msg").style.display="block";
-}
-</script>
+    // إنشاء مؤثرات تساقط القلوب، الورود والنجوم
+    const items = ['💖', '🌹', '✨', '💕', '🌸', '⭐'];
+    function createFallingItem() {
+      const item = document.createElement('div');
+      item.classList.add('falling-item');
+      item.innerText = items[Math.floor(Math.random() * items.length)];
+      item.style.left = Math.random() * 100 + 'vw';
+      item.style.animationDuration = Math.random() * 3 + 3 + 's';
+      item.style.fontSize = Math.random() * 15 + 15 + 'px';
+      document.body.appendChild(item);
 
+      setTimeout(() => {
+        item.remove();
+      }, 6000);
+    }
+    setInterval(createFallingItem, 300);
+
+    // حساب العداد منذ يوم الثلاثاء (يمكنك تعديل التاريخ)
+    // صيغة التاريخ: Year, Month (0-11), Day
+    const startDate = new Date(2023, 9, 24); // مثال: تاريخ سابق لليوم المطلوب
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+
+      document.getElementById('timer').innerText = 
+        `مرت ${days} يوم و ${hours} ساعة و ${minutes} دقيقة على معرفتنا 💕`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
 </body>
 </html>
